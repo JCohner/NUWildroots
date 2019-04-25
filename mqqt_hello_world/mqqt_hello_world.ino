@@ -26,7 +26,7 @@ void connect() {
   }
 
   Serial.print("\nconnecting...");
-  while (!client.connect("mqtt://wildroots~hello_world_namespace@broker.shiftr.io", "48197693", "eaddfc868cc6e74b")) {
+  while (!client.connect("PioneerESP", "48197693", "eaddfc868cc6e74b")) {
     Serial.print(".");
     delay(1000);
   }
@@ -66,6 +66,7 @@ void loop() {
   // publish a message roughly every second.
   if (millis() - lastMillis > 1000) {
     lastMillis = millis();
-    client.publish("/hello", "world");
+    client.publish("/hello", "today");
+    client.publish("/assurp", "hi");
   }
 }
